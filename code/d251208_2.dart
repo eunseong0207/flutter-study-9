@@ -23,9 +23,7 @@ void main() {
 
   mulTable(3);
   mulTable(7);
-
 }
-
 
 /// 특정 단수의 구구단을 출력하는 함수!
 ///
