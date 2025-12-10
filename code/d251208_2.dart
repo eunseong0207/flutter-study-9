@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 void main() {
   // 2는 고정
   // 곱해지는 수가 1씩 증가
