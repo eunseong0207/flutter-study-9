@@ -15,8 +15,6 @@ void main() async {
   // - String 클래스가 가지고 있는 메서드
   // - 인자로 넘겨준 문자열을 기준으로 분리해서 List에 담아줌
   List<String> lines = content.split('\n'); // \n : 한줄 띄기
-  List<String> nameList = [];
-  List<int> scoreList = [];
   List<Student> studentList = [];
   //
   for (String nameAndScore in lines) {
@@ -37,27 +35,12 @@ void main() async {
     // int abc = int.tryParse("ABC") ?? 0 ;
     // ---
     int score = int.tryParse(nameAndScoreList[1]) ?? 0;
-    nameList.add(name);
-    scoreList.add(score);
     print(name);
     print(score);
     // 이름과 점수를 담아 객체만들기
     Student s = Student(name, score);
     studentList.add(s);
   }
-  // 이름과 점수가 각각 다른 리스트에서 관리된다면
-  // 만약 점수 리스트에서 값이 제거된다면
-  // 이름리스트와 점수리스트 내 index들이 맞지 않음
-  // 그래서 하나의 클래스에 이름과 점수를 함께 담을 수 있게 구현해서
-  // 그 클래스 객체에 이름과 점수를 함께 담은 후
-  // 리스트에 그 객체를 저장할거임
-  // 그 클래스 이름 Student라고 할거임
-
-  print(nameList);
-  print(scoreList);
-  scoreList.removeAt(0); // 0 번째 index 를 지움
-  nameList[2];
-  scoreList[2];
 }
 
 class Student {
