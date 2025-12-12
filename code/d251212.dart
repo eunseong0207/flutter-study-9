@@ -1,5 +1,5 @@
 // class 클래스명 { 이 안에 구성요소 배치 }
-import 'd251211.dart';
+import 'dart:io';
 
 class Score {
   // 우선순위로 정할거
@@ -7,6 +7,7 @@ class Score {
   int point;
   // 2. 메서드 : 점수 (속성 중 하나)를 출력하는 기능
   // 반환타입 함수이름(매개변수) {실행할 코드}
+
   void showInfo() {
     print("점수 :$point");
   }
@@ -31,10 +32,10 @@ class StudentScore extends Score {
   void showInfo() {
     print("이름 : $name ,점수 : $point");
 
-    // 생성자
-    // 부모의 키워드다 => super
-    StudentScore(this.name, super.point);
   }
+  // 생성자
+    // 부모의 키워드다 => super
+      StudentScore(this.name, super.point);
 }
 
 void maint() async {
@@ -60,9 +61,26 @@ void maint() async {
     final erum = jinjjaBunli[0];
     final jeumSoo = jinjjaBunli[1];
     final sutjaJeumsoo = int.parse(jeumSoo);
-    final StudentScore = StudentScore(erum, jeumSoo);
-    haksangdeul.add(StudentScore);
+    final studentScore = StudentScore(erum, sutjaJeumsoo);
+    haksangdeul.add(studentScore);
   }
 
-  //
+  print("어떤 학생의 점수를 확인하시겠습니까?");
+  String sayongjaIpRuk = stdin.readLineSync()!;
+  // haksangdeul 이라는 리스트에 담긴 학생 이름과 sayongaiIpRak 이라는 입력값과 비교해서 있는지 여부 확인
+  // haksangdeul : [StudentScore("홍길동", 90), StudentScore("김철수", 90)]
+  StudentScore? chatneunHaksang = null;
+
+  for (StudentScore haksang in haksangdeul) {
+    if (sayongjaIpRuk == haksang.name) {
+      chatneunHaksang = haksang;
+      break;
+    }
+  }
+
+  if (chatneunHaksang == null) {
+    print("잘못된 학생이름을 입력하였습니다.");
+  } else {
+    print("이름 : ${chatneunHaksang.name} 점수 : ${chatneunHaksang.point}");
+  }
 }
