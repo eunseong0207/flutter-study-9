@@ -31,14 +31,14 @@ class StudentScore extends Score {
   @override
   void showInfo() {
     print("이름 : $name ,점수 : $point");
-
   }
+
   // 생성자
-    // 부모의 키워드다 => super
-      StudentScore(this.name, super.point);
+  // 부모의 키워드다 => super
+  StudentScore(this.name, super.point);
 }
 
-void maint() async {
+void main() async {
   // 1. 파일 객체 생성
   File txt = File("students.txt");
   // 2. 문자열로 불러오기
